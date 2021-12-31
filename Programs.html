@@ -1,0 +1,448 @@
+
+1. Write a JavaScript program to display the current day and time in the following format.  Go to the editor
+Sample Output : Today is : Tuesday.
+Current time is : 10 PM : 30 : 38
+
+
+var nn = new Date();
+var day=nn.getDay()
+
+var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+
+document.write("Today is  : "+daylist[day]);
+var hour=nn.getHours();
+var minute = nn.getMinutes();
+  var second = nn.getSeconds();
+  var prepand = (hour >12)?"PM":"AM";
+  
+ document.write("Cureent time is  : " +hour+" "+prepand+ " : "+minute+ " : "+ second);
+-----------------------------------------------------------------------------------------------------========================
+
+ 2. Write a JavaScript program to print the contents of the current window
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Print the current page.</title>
+</head>
+<body>
+<p></p>
+<p>Click the button to print the current page.</p>
+<button onclick="print_current_page()">Print this page</button>
+</body>
+</html>
+
+function print_current_page()
+{
+window.print();
+}
+-----------------------------------------------------------------------------------------
+
+3. Write a JavaScript program to get the current date.
+
+var nn = new Date();
+var date = nn.getDate();
+var mon = nn.getMonth();
+var year = nn.getFullYear();
+
+if(date <10 ){
+    date="0"+date;
+}
+if(mon <10 ){
+    mon="0"+mon;
+}
+
+today = "Date is : " +date+"/"+mon+"/"+year ;
+console.log(today);
+-----------------------------------------------------------------------------------------------------------
+4 . Write a JavaScript program to find the area of a triangle where lengths of the three of its sides are 5, 6, 7
+
+
+var a =5;
+var b =6;
+var c =7;
+
+var s = 1/2*(a*b*c);
+
+var area =  Math.sqrt(s*((s-a)*(s-b)*(s-c)));
+
+console.log(area);
+==================================================================================================================
+5.Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar
+
+function leapyear(year) {
+  return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0;
+}
+console.log(leapyear(2016));
+console.log(leapyear(2000));
+console.log(leapyear(1700));
+console.log(leapyear(1800));
+console.log(leapyear(100));
+
+=======================================================================================================================
+6.Write a JavaScript program to find which 1st January is being a Sunday between 2014 and 2050.
+
+console.log('--------------------');
+for (var year = 2014; year <= 2050; year++)
+    {
+    var d = new Date(year, 0, 1);
+    if ( d.getDay() === 0 )
+        console.log("1st January is being a Sunday  "+year);
+    }
+console.log('--------------------');
+
+
+===========================================================================================================================
+7.Write a JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched"
+
+const num = Math.ceil(Math.random() * 10);
+console.log(num);
+ const gnum = prompt('Guess the number between 1 and 10 inclusive');
+ if (gnum == num)
+   console.log('Matched');
+  else
+   console.log('Not matched, the number was '+gnum);
+=================================================================================================================================
+8.write a program to print good morning and good afternoon message from promt methode 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    var output = function(){
+      //  var aa = new Array(2);
+        var aa = prompt("enter the value")
+       // var a = 15;
+
+        if (aa <= 10) {
+        document.write("good morning");
+
+        }
+        else if (aa < 20) {
+             document.write("good afternoon");
+        } else {
+             document.write("good evening");
+        }
+    }    
+  
+    </script>
+    <title>Document</title>
+</head>
+<body>
+ <button onClick="output()">Click me for enter time </button>   
+</body>
+</html>
+===================================================================================================================================
+9. set interval example
+let bb =setInterval(abc,1000);
+function abc(){
+  let dd =new Date();
+  console.log(dd.toLocaleTimeString());
+}
+
+function stop(){
+     clearInterval(bb); 
+}
+
+================================
+10. set timeout example 
+
+let bb =setTimeout(abc,5000);
+function abc(){
+  let dd =new Date();
+  console.log(dd.toLocaleTimeString());
+}
+
+function stop(){
+     clearTimeout(bb); 
+}
+
+==========================================================================================================================
+11 . program to multiply 2 number 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+        <label for=""> 1st number</label> <input type="number" placeholder="number1" id="fnm" >
+        <label for=""> 2nd number </label> <input type="number" placeholder="number2" id="snm" >
+        <br/>
+       <button onclick="mul()"> multiply</button>
+    <br />
+    <br/>
+            <button onclick="divi()"> Divide</button>
+    </form>
+    <p>result is </p>
+    <span id ="result"></span>
+    <script>
+        function divi(){
+          
+            num1=document.getElementById("fnm").value;
+             num2 = document.getElementById("snm").value;
+             document.getElementById("result").innerHTML = num1 / num2;
+        
+        }
+        function mul() {
+              
+            num1 = document.getElementById("fnm").value;
+            num2 = document.getElementById("snm").value;
+            document.getElementById("result").innerHTML = num1 * num2;
+              
+            }
+    </script>
+</body>
+</html>
+=============================================================================================================================
+12) to get website url 
+
+console.log(document.URL);
+=========================================================================
+13.Write a JavaScript exercise to get the extension of a filename
+
+filename = "system.php"
+console.log(filename.split('.').pop());
+filename = "abc.js"
+console.log(filename.split('.').pop());
+=============================================================================
+14.Write a JavaScript program to get the difference between a given number and 13, if the number is greater than 13 return double the absolute difference.
+
+fucntion diff(n){
+     if(n <13){
+     return 13 - n;
+}else{
+ return (n-13)*2;
+}
+}
+console.log(diff(32));
+
+====================================================================================
+15.Write a JavaScript program to compute the sum of the two given integers. If the two values are same, then returns triple their sum
+
+function op(va1,va2){
+if(va1!==va2){
+   return va1+va2;
+}else{
+return (va1+va2)*3;
+}
+}
+
+console.log(op(5,5));
+===================================================================================
+
+16.Write a JavaScript program to check two given numbers and return true if one of the number is 50 or if their sum is 50.
+
+function test50(x, y) 
+{
+  return ((x == 50 || y == 50) || (x + y == 50));
+}
+console.log(test50(50, 50))
+console.log(test50(20, 50))
+console.log(test50(20, 20))
+console.log(test50(20, 30))
+=====================================================================================
+17.Write a JavaScript program to check whether a given integer is within 20 of 100 or 400.
+
+function testhundred(x) {
+  return ((Math.abs(100 - x) <= 20) ||
+	 (Math.abs(400 - x) <= 20));
+}
+
+console.log(testhundred(10));
+console.log(testhundred(90));
+console.log(testhundred(99));
+console.log(testhundred(199));
+console.log(testhundred(200));
+=======================================================================================
+18.Write a JavaScript program to check from two given integers, whether one is positive and another one is negative.
+
+function positive_negative(x, y)
+{
+  if ((x < 0 && y > 0) || x > 0 && y < 0) 
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
+console.log(positive_negative(2, 2));
+console.log(positive_negative(-2, 2));
+console.log(positive_negative(2, -2));
+console.log(positive_negative(-2, -2));
+=============================================================================================
+19.
+//Write a JavaScript program to create a new string adding "Py" in front of a given string. If the given string begins with "Py" then return the original string
+
+/*
+
+startsWith() : used to check first value in the string
+var st = str.startsWith("Good");
+document.write(st);*/
+
+var given= "Rohit";
+var x="";
+var st =given.startsWith("Py");
+if (st){
+    console.log(given);
+}else{
+    //x="Py"+given;
+    console.log("Py"+given);
+}
+
+====================================================================================================
+20.removr the string 
+
+function remove_character(str, char_pos) 
+ {
+  part1 = str.substring(0, char_pos);
+  part2 = str.substring(char_pos + 1, str.length);
+  return (part1 + part2);
+ }
+
+console.log(remove_character("Python",0));
+console.log(remove_character("Python",3));
+console.log(remove_character("Python",5));
+
+or 
+Turn the string into array, cut a character at specified index and turn back to string
+
+let str = 'Hello World'.split('')
+
+str.splice(3, 1)
+str = str.join('')
+
+// str = 'Helo World'.
+
+or 
+
+function removeByIndex(str,index) {
+      return str.slice(0,index) + str.slice(index+1);
+}
+    
+var str = "Hello world", index=3;
+console.log(removeByIndex(str,index));
+
+// Output: "Helo world"
+
+
+OR
+
+var str = 'Hello World',
+    i = 3,
+    result = str.substr(0, i-1)+str.substring(i);
+
+alert(result);
+
+====================================================================================
+21.Write a JavaScript program to create a new string from a given string changing the position of first and last characters. The string length must be greater than or equal to 1.
+
+function first_last(str1) 
+  {
+  if (str1.length <= 1)
+  {
+    return str1;
+  }
+  mid_char = str1.substring(1, str1.length - 1);
+  return (str1.charAt(str1.length - 1)) + mid_char + str1.charAt(0);
+}
+console.log(first_last('a'));
+console.log(first_last('ab'));
+console.log(first_last('abc'));
+===============================================
+22.//Write a JavaScript program to create a new string from a given string with the first character of the given string added at the front and back
+
+
+function abc(x){
+    return x.charAt(0) + x + x.charAt(0);
+}
+
+console.log(abc("hello"));
+================================================================================
+23.
+// Write a JavaScript program to check whether a given positive number is a multiple of 3 or a multiple of 7
+
+//var x =10;
+
+function abc(x){
+    return x%7==0 || x%3==0 ? "true": "false";
+    
+}
+
+console.log(abc(20));
+====================================================================================
+24.
+//Write a JavaScript program to check whether two given integer values are in the range 50..99 (inclusive). Return true if either of them are in the said range. 
+
+
+function abc(x,y){
+    return x >=50 && y <= 99||  y >=50 && x <= 99 ?"true":"false";
+    
+}
+
+console.log(abc(33,67));
+================================================================================================================
+25.
+
+//Write a JavaScript program to compute the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 
+
+function aa(a,y){
+    var sum = a+y;
+    if(sum >=50 && sum <= 80){
+        return 65;
+    }else{
+    return "this is not vlaue ";
+    }
+    
+}
+
+
+console.log(aa(209,46));
+
+=====================================================================================================================
+26.
+//Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
+
+function abc(x,y){
+    var add = x+y;
+    var sub =x-y;
+  if (x ==8 || y ==8 || add ==8 || sub == 8){
+      return "true";
+  }else{
+      return "false";
+  }
+}
+
+console.log(abc(8,44));
+==================================================================================
+27. to change any element in htl webpage
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <h1 id="gg">hello</h1>
+    <script>
+        var element = document.getElementById("gg").innerText="jsjsj";
+        document.getElementById("gg").style.backgroundColor = "red";
+        document.getElementById("gg").addEventListener("click",ads);
+        
+        
+        function ads() {
+            return console.log("Hi");
+        }
+    </script>
+</body>
+</html>
